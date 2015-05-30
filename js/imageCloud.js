@@ -1,119 +1,135 @@
 function ImageCloud() {
 
-	var MAX_IMAGE_COUNT_X = 20;
-	var MAX_IMAGE_COUNT_Y = 10;
+    var MAX_IMAGE_COUNT_X = 20;
+    var MAX_IMAGE_COUNT_Y = 10;
 
-	var images;
-	
-	var clientWidth = document.body.clientWidth;
-	var clientHeight = document.body.clientHeight;
-	var tileWidth = (clientWidth + 15) / MAX_IMAGE_COUNT_X;
-	var tileHeight = (clientHeight + 15) / MAX_IMAGE_COUNT_Y;
+    var images;
 
-	this.init = function() {
-		var imageCloud = document.getElementById('imageCloud');
-		initGrid();
-		updateImageTiles();
-	};
+    var clientWidth = document.body.clientWidth;
+    var clientHeight = document.body.clientHeight;
+    var tileWidth = (clientWidth + 15) / MAX_IMAGE_COUNT_X;
+    var tileHeight = (clientHeight + 15) / MAX_IMAGE_COUNT_Y;
 
-	function initGrid() {
-		images = new Array(MAX_IMAGE_COUNT_Y);
+    var tileCounter = 0;
 
-		for (var y = 0; y < images.length; y++) {
-			images[y] = new Array(MAX_IMAGE_COUNT_X);
+    this.init = function() {
+        var imageCloud = document.getElementById('imageCloud');
+        initGrid();
+        updateImageTiles();
 
-			for (var x = 0; x < images[y].length; x++) {
-				images[y][x] = 0;
-			}
-		}
-	}
+        setInterval(function() {
+            changeImage();
+        }, 6000);
+    };
 
-	function updateImageTiles() {
-		insertImage(6, 1, 7, 5);
-		insertImage(2, 4, 3, 5);
-		insertImage(10, 6, 5, 3);
-		insertImage(0, 0, 3, 2);
+    function changeImage() {
+        var tile = jQuery('#tile' + Math.floor(Math.random() * 50));
+        var imgObj = tile.find('img');
+        imgObj.fadeOut(2000, function() {
+        	imgObj.attr('src', imagePaths.images[Math.floor(Math.random() * imagePaths.images.length)].path);
+        	imgObj.fadeIn(2000);
+        });
+    }
 
-		while (isSpaceAvailable(3, 2)) {
-			insertImage(0, 0, 3, 2);
-		}
+    function initGrid() {
+        images = new Array(MAX_IMAGE_COUNT_Y);
 
-		while (isSpaceAvailable(1, 1)) {
-			insertImage(0, 0, 1, 1);
-		}
-	}
+        for (var y = 0; y < images.length; y++) {
+            images[y] = new Array(MAX_IMAGE_COUNT_X);
 
-	function isSpaceAvailable(tileX, tileY) {
-		for (var y = 0; y < images.length; y++) {
-			for (var x = 0; x < images[y].length; x++) {
-				if (isSpace(x, y, tileX, tileY)) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+            for (var x = 0; x < images[y].length; x++) {
+                images[y][x] = 0;
+            }
+        }
+    }
 
-	function insertImage(posX, posY, tileX, tileY) {
-		for (var y = posY; y < MAX_IMAGE_COUNT_Y; y++) {
-			for (var x = posX; x < MAX_IMAGE_COUNT_X; x++) {
+    function updateImageTiles() {
+        insertImage(6, 1, 7, 5);
+        insertImage(2, 4, 3, 5);
+        insertImage(10, 6, 5, 3);
+        insertImage(0, 0, 3, 2);
 
-				if (isSpace(x, y, tileX, tileY)) {
-					markTiles(x, y, tileX, tileY);
-					insertContainer(x, y, tileX, tileY);
-					return;
-				}
-			}
-		}
-	}
+        while (isSpaceAvailable(3, 2)) {
+            insertImage(0, 0, 3, 2);
+        }
 
-	function insertContainer(posX, posY, tileX, tileY) {
-		tileWidth = Math.floor(tileWidth);
-		tileHeight = Math.floor(tileHeight);
+        while (isSpaceAvailable(1, 1)) {
+            insertImage(0, 0, 1, 1);
+        }
+    }
 
-		var style = 'top:' + (posY * tileHeight) + 'px;';
-		style += 'left:' + (posX * tileWidth) + 'px;';
-		style += 'width:' + (tileX * tileWidth) + 'px;';
-		style += 'height:' + (tileY * tileHeight) + 'px;';
+    function isSpaceAvailable(tileX, tileY) {
+        for (var y = 0; y < images.length; y++) {
+            for (var x = 0; x < images[y].length; x++) {
+                if (isSpace(x, y, tileX, tileY)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
-		var imageCloud = document.getElementById('imageCloud');
-		
-		var html = '';
-		html += '<div class="imageTile" style="' + style + '">';
-		html += '	<img src="' + getImagePath() + '" alt="title">';
-		html += '</div>';
-		imageCloud.innerHTML += html;
-	}
+    function insertImage(posX, posY, tileX, tileY) {
+        for (var y = posY; y < MAX_IMAGE_COUNT_Y; y++) {
+            for (var x = posX; x < MAX_IMAGE_COUNT_X; x++) {
 
-	function getImagePath() {
-		if (imagePaths !== undefined && imagePaths.images !== undefined && imagePaths.images.length > 0) {
-			var randomImage = Math.floor(Math.random()*imagePaths.images.length);
-			return imagePaths.images[randomImage].path;
-		}
-	}
+                if (isSpace(x, y, tileX, tileY)) {
+                    markTiles(x, y, tileX, tileY);
+                    insertContainer(x, y, tileX, tileY);
+                    return;
+                }
+            }
+        }
+    }
 
-	function markTiles(posX, posY, tileX, tileY) {
-		for (var y = posY; y < (posY + tileY) && y < MAX_IMAGE_COUNT_Y; y++) {
-			for (var x = posX; x < (posX + tileX) && x < MAX_IMAGE_COUNT_X; x++) {
-				images[y][x] = 1;
-			}
-		}
-	}
+    function insertContainer(posX, posY, tileX, tileY) {
+        tileWidth = Math.floor(tileWidth);
+        tileHeight = Math.floor(tileHeight);
 
-	function isSpace(posX, posY, tileX, tileY) {
-		for (var y = posY; y < (posY + tileY); y++) {
-			for (var x = posX; x < (posX + tileX); x++) {
-				if (x === MAX_IMAGE_COUNT_X || y === MAX_IMAGE_COUNT_Y) {
-					return false;
-				}
+        var style = 'top:' + (posY * tileHeight) + 'px;';
+        style += 'left:' + (posX * tileWidth) + 'px;';
+        style += 'width:' + (tileX * tileWidth) + 'px;';
+        style += 'height:' + (tileY * tileHeight) + 'px;';
 
-				if (images[y][x] === undefined || images[y][x] === 1) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
+        var imageCloud = document.getElementById('imageCloud');
+
+        var html = '';
+        html += '<div id="tile' + tileCounter + '" class="imageTile" style="' + style + '">';
+        html += '	<img src="' + getImagePath() + '" alt="title">';
+        html += '</div>';
+        imageCloud.innerHTML += html;
+        tileCounter++;
+    }
+
+    function getImagePath() {
+        if (imagePaths !== undefined && imagePaths.images !== undefined && imagePaths.images.length > 0) {
+            var randomImage = Math.floor(Math.random() * imagePaths.images.length);
+            return imagePaths.images[randomImage].path;
+        }
+    }
+
+    function markTiles(posX, posY, tileX, tileY) {
+        for (var y = posY; y < (posY + tileY) && y < MAX_IMAGE_COUNT_Y; y++) {
+            for (var x = posX; x < (posX + tileX) && x < MAX_IMAGE_COUNT_X; x++) {
+                images[y][x] = 1;
+            }
+        }
+    }
+
+    function isSpace(posX, posY, tileX, tileY) {
+        for (var y = posY; y < (posY + tileY); y++) {
+            for (var x = posX; x < (posX + tileX); x++) {
+                if (x === MAX_IMAGE_COUNT_X || y === MAX_IMAGE_COUNT_Y) {
+                    return false;
+                }
+
+                if (images[y][x] === undefined || images[y][x] === 1) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
 
 }
