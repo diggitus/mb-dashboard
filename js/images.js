@@ -1,0 +1,38 @@
+var imagePaths = {
+	"images": [{
+			"path":"images/a45-amg.jpg"
+		},{
+			"path":"images/c120.jpg"
+		},{
+			"path":"images/c232.jpg"
+		},{
+			"path":"images/daimler_1886.jpg"
+		},{
+			"path":"images/daimler_cla_mercedes.jpg"
+		},{
+			"path":"images/daimler_star.jpg"
+		},{
+			"path":"images/F-015-Luxury.jpg"
+		},{
+			"path":"images/mercedes-amg-gt-5.jpg"
+		},{
+			"path":"images/Mercedes-Benz_GLK-Klasse.jpg"
+		},{
+			"path":"images/mercedes-benz-a-class-w176.jpg"
+		},{
+			"path":"images/mercedes-benz-cla-class-117.jpg"
+		},{
+			"path":"images/mercedes-benz-sf1.jpg"
+		},{
+			"path":"images/mercedes-cls.jpg"
+		},{
+			"path":"images/slk-200.jpg"
+		},{
+			"path":"images/van.jpg"
+		},{
+			"path":"images/w180.jpg"
+		},{
+			"path":"images/z100.jpg"
+		}
+	]
+}
