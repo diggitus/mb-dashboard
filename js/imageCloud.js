@@ -1,19 +1,33 @@
 function ImageCloud() {
 
+    var NAVBAR_ID = 'navbar';
+    var NAVBAR_HEIGHT = 60;
+    var IMAGE_CLOUD_ID = 'imageCloud';
+
     var MAX_IMAGE_COUNT_X = 20;
     var MAX_IMAGE_COUNT_Y = 10;
 
     var images;
-
-    var clientWidth = document.body.clientWidth;
-    var clientHeight = document.body.clientHeight;
-    var tileWidth = (clientWidth + 15) / MAX_IMAGE_COUNT_X;
-    var tileHeight = (clientHeight + 15) / MAX_IMAGE_COUNT_Y;
+    var clientWidth;
+    var clientHeight;
+    var tileWidth;
+    var tileHeight;
 
     var tileCounter = 0;
 
+    /**
+     * Initializes Image Cloud.
+     */
     this.init = function() {
-        var imageCloud = document.getElementById('imageCloud');
+        var imageCloud = document.getElementById(IMAGE_CLOUD_ID);
+        clientWidth = document.body.clientWidth;
+        clientHeight = document.body.clientHeight;
+        tileWidth = clientWidth / MAX_IMAGE_COUNT_X;
+        tileHeight = (clientHeight - NAVBAR_HEIGHT) / MAX_IMAGE_COUNT_Y;
+
+        imageCloud.style.height = clientHeight - NAVBAR_HEIGHT;
+
+        initNavbar();
         initGrid();
         updateImageTiles();
 
@@ -22,15 +36,20 @@ function ImageCloud() {
         }, 6000);
     };
 
-    function changeImage() {
-        var tile = jQuery('#tile' + Math.floor(Math.random() * 50));
-        var imgObj = tile.find('img');
-        imgObj.fadeOut(2000, function() {
-        	imgObj.attr('src', imagePaths.images[Math.floor(Math.random() * imagePaths.images.length)].path);
-        	imgObj.fadeIn(2000);
-        });
+    /** 
+     * Initializes the top navigation bar.
+     */
+    function initNavbar() {
+        var navbar = document.getElementById(NAVBAR_ID);
+
+        if (navbar !== undefined) {
+            navbar.style.height = NAVBAR_HEIGHT;
+        }
     }
 
+    /**
+     * Initializes the image cloud grid.
+     */
     function initGrid() {
         images = new Array(MAX_IMAGE_COUNT_Y);
 
@@ -41,6 +60,15 @@ function ImageCloud() {
                 images[y][x] = 0;
             }
         }
+    }
+
+    function changeImage() {
+        var tile = jQuery('#tile' + Math.floor(Math.random() * 50));
+        var imgObj = tile.find('img');
+        imgObj.fadeOut(2000, function() {
+            imgObj.attr('src', imagePaths.images[Math.floor(Math.random() * imagePaths.images.length)].path);
+            imgObj.fadeIn(2000);
+        });
     }
 
     function updateImageTiles() {
@@ -83,8 +111,8 @@ function ImageCloud() {
     }
 
     function insertContainer(posX, posY, tileX, tileY) {
-        tileWidth = Math.floor(tileWidth);
-        tileHeight = Math.floor(tileHeight);
+        tileWidth = Math.ceil(tileWidth);
+        tileHeight = Math.ceil(tileHeight);
 
         var style = 'top:' + (posY * tileHeight) + 'px;';
         style += 'left:' + (posX * tileWidth) + 'px;';

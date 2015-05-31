@@ -2,6 +2,11 @@ body {
 	margin: 0;
 }
 
+#navbar {
+	display: block;
+	background-color: black;
+}
+
 #imageCloud {
 	position: relative;
 	background-color: black;
