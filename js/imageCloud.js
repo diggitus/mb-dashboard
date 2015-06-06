@@ -42,9 +42,26 @@ function ImageCloud() {
     };
 
     function initEventHandler() {
-    	initUploadAssetBtnHandler();
-    	initLightboxHandler();
-    	initShadowHover();
+    	jQuery(document).ready(function() {
+	    	initUploadAssetBtnHandler();
+    		initLightboxHandler();
+    		initShadowHover();
+    		initPreviewDialog();
+    	});
+    }
+
+    function initPreviewDialog() {
+    	var previewElem = jQuery('#preview');
+    	var xOffset = 40;
+    	var yOffset = 40;
+
+    	if (previewElem !== undefined) {
+    		jQuery('#imageCloud').mousemove(function(e) {
+			previewElem
+				.css("top",(e.pageY - yOffset) + "px")
+				.css("left",(e.pageX + xOffset) + "px");
+			});	
+    	}
     }
 
     function initShadowHover() {

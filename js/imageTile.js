@@ -6,6 +6,9 @@ function ImageTile(tileId, posX, posY, tileX, tileY, image) {
 	this.tileY = tileY;
 	this.image = image;
 
+	var xOffset = 10;
+	var yOffset = 30;
+
 	/**
 	 * Returns the image html.
 	 *
@@ -68,11 +71,69 @@ function ImageTile(tileId, posX, posY, tileX, tileY, image) {
 	this.addHoverListener = function() {
 		var tileObj = jQuery('#' + tileId);
 
-		tileObj.hover(function() {
+		tileObj.hover(function(e) {
 			tileObj.find('.shadow').fadeIn();
+			showMetaDialog(e);
 		}, function() {
 			tileObj.find('.shadow').hide();
+			hideMetaDialog();
 		});
+	}
+
+	function hideMetaDialog() {
+		var previewElem = jQuery('#preview');
+
+		if (previewElem !== undefined) {
+			previewElem.hide();
+		}
+	}
+
+	function showMetaDialog(e) {
+		var previewElem = jQuery('#preview');
+
+		if (previewElem !== undefined) {
+			var html = '';
+			html += '<div id="arrow"></div>';
+    		
+    		html += '<div class="previewThumbnail">';
+    		html += '	<img src="' + image.path + '" alt="test">';
+    		html += '</div>';
+
+    		html += '<div class="filename">mercedes-benz-cla-class-117.jpg</div>';
+    		html += '<table>';
+    		html += '<tbody>';
+	    	html += '<tr>';
+			html += '	<td>Rating:</td>';
+	    	html += '	<td class="rating"></td>';
+	    	html += '</tr>';
+	    	html += '<tr>';
+	    	html += '	<td>Filetype:</td>';
+	    	html += '	<td>image/jpeg</td>';
+	    	html += '</tr>';
+	    	html += '<tr>';
+	    	html += '	<td>Size:</td>';
+	    	html += '	<td>800 x 600</td>';
+	    	html +=	'</tr>';
+	    	html += '<tr>';
+	    	html += '	<td>Filesize:</td>';
+	    	html += '	<td>600 KB</td>';
+	    	html += '</tr>';
+	    	html += '<tr>';
+	    	html += '	<td>Tags:</td>';
+	    	html += '	<td>W168, Flyer, Brochure</td>';
+	    	html += '</tr>';
+    		html += '</tbody>';
+    		html += '</table>';
+
+    		previewElem.html(html).fadeIn();
+    		previewElem
+			.css("top",(e.pageY - xOffset) + "px")
+			.css("left",(e.pageX + yOffset) + "px");
+
+			previewElem.find('.rating').raty({
+    			score:3
+    		});
+		}
 	}
 
 }
