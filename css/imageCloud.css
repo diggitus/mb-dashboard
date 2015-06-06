@@ -1,30 +1,136 @@
 body {
-	margin: 0;
+    margin: 0;
+    font-family: arial, helvetica, verdana, 'times new roman', sans-serif;
+}
+/*
+ * General style
+ */
+
+.cyanBtn {
+    background: -webkit-linear-gradient(top, rgb(4, 154, 214) 6%, rgb(8, 136, 192) 100%);
+    padding: 6px 16px 4px 16px;
+    display: inline-block;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.cyanBtn a {
+    text-decoration: none;
+    color: white;
+}
+
+.cyanBtn .fa {
+    margin-left: 12px;
+}
+
+.title {
+    font-size: 24px;
+    color: rgb(4, 154, 214);
+}
+
+.dialog {
+    position: absolute;
+    display: block;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    top: 100px;
+    left: 50%;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,1);
+}
+
+.dialog .dialogButtons {
+    float: right;
+    margin-top: 20px;
+}
+
+.dialog .closeBtn {
+	float: right;
+	font-size: 20px;
+}
+
+.dialog .row {
+	margin-bottom: 6px;
+}
+
+#uploadDialog {
+    width: 400px;
+    margin-left: -200px;
+}
+
+#uploadField {
+    display: block;
+    border: 2px dashed #CFCFCF;
+    color: #CFCFCF;
+    height: 150px;
+    margin: 20px 0;
+    padding-top: 35px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#lightbox {
+    position: absolute;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#logo {
+    margin-top: 6px;
 }
 
 #navbar {
-	display: block;
-	background-color: black;
+    display: block;
+    background-color: black;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#uploadAssetBtn {
+    margin-top: 16px;
+    float: right;
 }
 
 #imageCloud {
-	position: relative;
-	background-color: black;
-	display: block;
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
+    position: relative;
+    background-color: black;
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 #imageCloud .imageTile {
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+#imageCloud .shadow {
 	position: absolute;
 	display: block;
-	width: 50px;
-	height: 50px;
-	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    -webkit-box-shadow: inset 0px 0px 100px -10px rgba(0,0,0,0.75);
+    z-index: 1000;
 }
 
 #imageCloud .imageTile img {
-	width: auto;
-	height: 100%;
+    width: auto;
+    height: 100%;
 }

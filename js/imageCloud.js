@@ -1,7 +1,6 @@
 function ImageCloud() {
+	'use strict';
 
-    var NAVBAR_ID = 'navbar';
-    var NAVBAR_HEIGHT = 60;
     var IMAGE_CLOUD_ID = 'imageCloud';
 
     var MAX_IMAGE_COUNT_X = 20;
@@ -14,37 +13,97 @@ function ImageCloud() {
     var tileHeight;
 
     var tileCounter = 0;
-
+    
+    var navbar;
+    var imageCloud;
+    var imageObj = [];
+    
     /**
      * Initializes Image Cloud.
      */
     this.init = function() {
-        var imageCloud = document.getElementById(IMAGE_CLOUD_ID);
-        clientWidth = document.body.clientWidth;
+        clientWidth = document.body.clientWidth + 15;
         clientHeight = document.body.clientHeight;
+        
+        navbar = new Navigation();
+        imageCloud = document.getElementById(IMAGE_CLOUD_ID);
+        imageCloud.style.height = clientHeight - navbar.getHeight();
+        
         tileWidth = clientWidth / MAX_IMAGE_COUNT_X;
-        tileHeight = (clientHeight - NAVBAR_HEIGHT) / MAX_IMAGE_COUNT_Y;
+        tileHeight = (clientHeight - navbar.getHeight()) / MAX_IMAGE_COUNT_Y;
 
-        imageCloud.style.height = clientHeight - NAVBAR_HEIGHT;
-
-        initNavbar();
         initGrid();
         updateImageTiles();
+        initEventHandler();
 
         setInterval(function() {
-            changeImage();
+            //changeImage();
         }, 6000);
     };
 
-    /** 
-     * Initializes the top navigation bar.
-     */
-    function initNavbar() {
-        var navbar = document.getElementById(NAVBAR_ID);
+    function initEventHandler() {
+    	initUploadAssetBtnHandler();
+    	initLightboxHandler();
+    	initShadowHover();
+    }
 
-        if (navbar !== undefined) {
-            navbar.style.height = NAVBAR_HEIGHT;
-        }
+    function initShadowHover() {
+    	if (imageObj.length > 0) {
+    		for (var i = 0; i < imageObj.length; i++) {
+    			imageObj[i].addHoverListener();
+    		};
+    	}
+    }
+
+    function initUploadAssetBtnHandler() {
+    	var uploadAssetBtn = document.getElementById('uploadAssetBtn');
+    	
+    	if (uploadAssetBtn !== undefined) {
+    		uploadAssetBtn.addEventListener('click', function() {
+    			toggleLightbox();
+    			openUploadAssetDialog();
+    		});
+    	}
+    }
+
+    function openUploadAssetDialog() {
+    	var uploadAssetDialog = jQuery('#uploadDialog');
+
+    	if (uploadAssetDialog !== undefined) {
+    		uploadAssetDialog.fadeIn();
+    	}
+    }
+
+    function initLightboxHandler() {
+    	var lightbox = document.getElementById('lightbox');
+
+    	if (lightbox !== undefined) {
+    		lightbox.addEventListener('click', function() {
+    			toggleLightbox();
+    		});
+    	}
+    }
+
+    function toggleLightbox() {
+    	var lightbox = document.getElementById('lightbox');
+    	var displayStatus = lightbox.style.display;
+
+    	if (displayStatus === 'none') {
+    		lightbox.style.display = 'block';
+    	} else {
+    		lightbox.style.display = 'none';
+    		closeDialog();
+    	}
+    }
+
+    function closeDialog() {
+    	var dialogs = document.getElementsByClassName('dialog');
+
+    	if (dialogs !== undefined) {
+    		for (var i = 0; i < dialogs.length; i++) {
+    			dialogs[i].style.display = 'none';
+    		}
+    	}
     }
 
     /**
@@ -103,36 +162,25 @@ function ImageCloud() {
 
                 if (isSpace(x, y, tileX, tileY)) {
                     markTiles(x, y, tileX, tileY);
-                    insertContainer(x, y, tileX, tileY);
+
+                    var imageCloud = document.getElementById(IMAGE_CLOUD_ID);
+                    var imageTile = new ImageTile('tile' + tileCounter, x, y, tileX, tileY, getRandomImage());
+                    imageObj.push(imageTile);
+                    imageCloud.innerHTML += imageTile.getImage(tileWidth, tileHeight);
+                    tileCounter++;
                     return;
                 }
             }
         }
     }
 
-    function insertContainer(posX, posY, tileX, tileY) {
-        tileWidth = Math.ceil(tileWidth);
-        tileHeight = Math.ceil(tileHeight);
-
-        var style = 'top:' + (posY * tileHeight) + 'px;';
-        style += 'left:' + (posX * tileWidth) + 'px;';
-        style += 'width:' + (tileX * tileWidth) + 'px;';
-        style += 'height:' + (tileY * tileHeight) + 'px;';
-
-        var imageCloud = document.getElementById('imageCloud');
-
-        var html = '';
-        html += '<div id="tile' + tileCounter + '" class="imageTile" style="' + style + '">';
-        html += '	<img src="' + getImagePath() + '" alt="title">';
-        html += '</div>';
-        imageCloud.innerHTML += html;
-        tileCounter++;
-    }
-
-    function getImagePath() {
+    /**
+     * Returns a random image path.
+     */
+    function getRandomImage() {
         if (imagePaths !== undefined && imagePaths.images !== undefined && imagePaths.images.length > 0) {
             var randomImage = Math.floor(Math.random() * imagePaths.images.length);
-            return imagePaths.images[randomImage].path;
+            return imagePaths.images[randomImage];
         }
     }
 
