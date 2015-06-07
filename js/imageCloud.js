@@ -42,26 +42,9 @@ function ImageCloud() {
     };
 
     function initEventHandler() {
-    	jQuery(document).ready(function() {
-	    	initUploadAssetBtnHandler();
-    		initLightboxHandler();
-    		initShadowHover();
-    		initPreviewDialog();
-    	});
-    }
-
-    function initPreviewDialog() {
-    	var previewElem = jQuery('#preview');
-    	var xOffset = 40;
-    	var yOffset = 40;
-
-    	if (previewElem !== undefined) {
-    		jQuery('#imageCloud').mousemove(function(e) {
-			previewElem
-				.css("top",(e.pageY - yOffset) + "px")
-				.css("left",(e.pageX + xOffset) + "px");
-			});	
-    	}
+    	initUploadAssetBtnHandler();
+		initLightboxHandler();
+		initShadowHover();
     }
 
     function initShadowHover() {
@@ -173,17 +156,16 @@ function ImageCloud() {
         return false;
     }
 
-    function insertImage(posX, posY, tileX, tileY) {
-        for (var y = posY; y < MAX_IMAGE_COUNT_Y; y++) {
-            for (var x = posX; x < MAX_IMAGE_COUNT_X; x++) {
+    function insertImage(tilePosX, tilePosY, tileCountX, tileCountY) {
+        for (var y = tilePosY; y < MAX_IMAGE_COUNT_Y; y++) {
+            for (var x = tilePosX; x < MAX_IMAGE_COUNT_X; x++) {
 
-                if (isSpace(x, y, tileX, tileY)) {
-                    markTiles(x, y, tileX, tileY);
+                if (isSpace(x, y, tileCountX, tileCountY)) {
+                    markTiles(x, y, tileCountX, tileCountY);
 
-                    var imageCloud = document.getElementById(IMAGE_CLOUD_ID);
-                    var imageTile = new ImageTile('tile' + tileCounter, x, y, tileX, tileY, getRandomImage());
+                    var imageTile = new ImageTile(tileCounter, x, y, tileCountX, tileCountY, tileWidth, tileHeight, getRandomImage());
                     imageObj.push(imageTile);
-                    imageCloud.innerHTML += imageTile.getImage(tileWidth, tileHeight);
+                    imageCloud.innerHTML += imageTile.getImage();
                     tileCounter++;
                     return;
                 }

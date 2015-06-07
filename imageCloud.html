@@ -6,6 +6,7 @@
     <script type="text/javascript" src="js/imageTile.js"></script>
     <script type="text/javascript" src="js/images.js"></script>
     <script type="text/javascript" src="js/navbar.js"></script>
+    <script type="text/javascript" src="js/metadataDialog.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="lib/raty/jquery.raty.js"></script>
@@ -17,13 +18,18 @@
 
 <body>
     <div id="lightbox" style="display:none;"></div>
+
     <div id="navbar">
         <img id="logo" src="images/logo.png">
         <div id="uploadAssetBtn" class="cyanBtn">
             Upload Asset<i class="fa fa-cloud-upload fa-lg"></i>
         </div>
     </div>
-    <div id="imageCloud"></div>
+
+    <div id="imageCloud">
+        <div id="preview" style="display:none;"></div>
+    </div>
+    
     <div id="uploadDialog" class="dialog" style="display:none;">
         <div class="closeBtn"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></div>
         <div class="title">Upload Asset</div>
@@ -56,7 +62,6 @@
         </div>
     </div>
 
-    <div id="preview"></div>
     <script type="text/javascript">
     	var imageCloud = new ImageCloud();
     	imageCloud.init();
