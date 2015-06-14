@@ -43,6 +43,7 @@ function ImageCloud() {
 
     function initEventHandler() {
     	initUploadAssetBtnHandler();
+    	initSearchBtnHandler();
 		initLightboxHandler();
 		initShadowHover();
     }
@@ -66,11 +67,30 @@ function ImageCloud() {
     	}
     }
 
+    function initSearchBtnHandler() {
+    	var searchBtn = document.getElementById('searchBtn');
+    	
+    	if (searchBtn !== undefined) {
+    		searchBtn.addEventListener('click', function() {
+    			toggleLightbox();
+    			openSearchDialog();
+    		});
+    	}
+    }
+
     function openUploadAssetDialog() {
     	var uploadAssetDialog = jQuery('#uploadDialog');
 
     	if (uploadAssetDialog !== undefined) {
     		uploadAssetDialog.fadeIn();
+    	}
+    }
+
+    function openSearchDialog() {
+    	var searchDialog = jQuery('#searchDialog');
+
+    	if (searchDialog !== undefined) {
+    		searchDialog.fadeIn();
     	}
     }
 

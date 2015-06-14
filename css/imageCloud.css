@@ -34,7 +34,7 @@ body {
     display: block;
     background-color: white;
     border-radius: 5px;
-    z-index: 100;
+    z-index: 1200;
     margin-left: auto;
     margin-right: auto;
     top: 100px;
@@ -95,9 +95,13 @@ body {
     padding-right: 10%;
 }
 
+
+#navButtons {
+	float: right;
+}
+
 #uploadAssetBtn {
     margin-top: 16px;
-    float: right;
 }
 
 #imageCloud {
@@ -142,7 +146,7 @@ body {
 	background-color: #111;
 	-webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,1);
 	padding: 8px;
-	z-index: 2000;
+	z-index: 1100;
 }
 
 #preview #arrow {
@@ -186,4 +190,11 @@ body {
 
 #preview table td:nth-child(2) {
 	color: #CCC;
+}
+
+#searchDialog {
+	top: 50%;
+	width: 600px;
+	margin-left: -300px;
+	margin-top: -80px;
 }

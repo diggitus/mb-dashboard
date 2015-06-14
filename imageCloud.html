@@ -21,9 +21,14 @@
 
     <div id="navbar">
         <img id="logo" src="images/logo.png">
-        <div id="uploadAssetBtn" class="cyanBtn">
-            Upload Asset<i class="fa fa-cloud-upload fa-lg"></i>
-        </div>
+        <div id="navButtons">
+	        <div id="uploadAssetBtn" class="cyanBtn">
+	            Upload Asset<i class="fa fa-cloud-upload fa-lg"></i>
+	        </div>
+	        <div id="searchBtn" class="cyanBtn">
+	        	Search<i class="fa fa-search"></i>
+	        </div>
+    	</div>
     </div>
 
     <div id="imageCloud">
@@ -58,6 +63,17 @@
             </div>
             <div id="cancelBtn" class="cyanBtn">
                 Cancel <i class="fa fa-times fa-lg"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchDialog" class="dialog" style="display:none">
+    	<div class="row">
+            <div class="col-lg-10">
+                <input type="text" class="form-control" placeholder="Search ...">
+            </div>
+            <div class="col-lg-2">
+            	<div id="uploadBtn" class="cyanBtn">Search</div>
             </div>
         </div>
     </div>
