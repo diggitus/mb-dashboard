@@ -71,6 +71,26 @@ function ImageTile(tileId, tilePosX, tilePosY, tileCountX, tileCountY, singleTil
 	}
 
 	/**
+	 * Sets a new image for the tile.
+	 *
+	 * @param imageDataParam: The new image data.
+	 */
+	this.setNewImage = function(imageDataParam) {
+		imageData = imageDataParam;
+		var imageStyle = getImageStyle(imageData.width, imageData.height);
+
+		getUiElement().fadeOut(2000, function() {
+			var html = '';
+	        html += '<img style="' + imageStyle + '" src="' + imageData.path + '" alt="' + imageData.path + '">';
+	        html += '<div class="' + SHADOW_CLASS + '" style="display:none;"></div>';
+	        getUiElement().html(html);
+	        getUiElement().fadeIn(2000);
+		});
+
+		metadataDialog = new MetadataDialog(imageData, posX + tileWidth + 5, posY);
+	}
+
+	/**
 	 * Returns the style of the image tile.
 	 */
 	function getTileStyle() {

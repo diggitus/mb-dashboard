@@ -12,7 +12,7 @@ function Navigation() {
 		this.navbarElem = document.getElementById(NAVBAR_ID);
 
         if (this.navbarElem !== undefined) {
-            this.navbarElem.style.height = NAVBAR_HEIGHT;
+            this.navbarElem.style.height = NAVBAR_HEIGHT + "px";
         }
 	};
 

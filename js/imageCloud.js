@@ -26,6 +26,7 @@ function ImageCloud() {
         clientHeight = document.body.clientHeight;
         
         navbar = new Navigation();
+        navbar.init();
         imageCloud = document.getElementById(IMAGE_CLOUD_ID);
         imageCloud.style.height = clientHeight - navbar.getHeight();
         
@@ -37,7 +38,7 @@ function ImageCloud() {
         initEventHandler();
 
         setInterval(function() {
-            //changeImage();
+            changeImage();
         }, 6000);
     };
 
@@ -142,12 +143,8 @@ function ImageCloud() {
     }
 
     function changeImage() {
-        var tile = jQuery('#tile' + Math.floor(Math.random() * 50));
-        var imgObj = tile.find('img');
-        imgObj.fadeOut(2000, function() {
-            imgObj.attr('src', imagePaths.images[Math.floor(Math.random() * imagePaths.images.length)].path);
-            imgObj.fadeIn(2000);
-        });
+        var imgObj = imageObj[Math.floor(Math.random() * imageObj.length - 1)];
+        imgObj.setNewImage(getRandomImage());
     }
 
     function updateImageTiles() {
