@@ -1,10 +1,15 @@
 body {
     margin: 0;
     font-family: arial, helvetica, verdana, 'times new roman', sans-serif;
+    background-color: black;
 }
 /*
  * General style
  */
+
+#content {
+    margin-top: 60px;
+}
 
 .cyanBtn {
     background: -webkit-linear-gradient(top, rgb(4, 154, 214) 6%, rgb(8, 136, 192) 100%);
@@ -101,6 +106,35 @@ body {
     padding-right: 10%;
 }
 
+#main-nav {
+    display: inline-block;
+    font-size: 12px;
+    position: relative;
+    left: 100px;
+    top: 15px;
+}
+
+#main-nav ul {
+    list-style: none;
+}
+
+#main-nav li {
+    padding-right: 25px;
+    float: left;
+}
+
+#main-nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+#main-nav li a.active {
+    color: rgb(4, 154, 214);
+}
+
+#main-nav li a:hover {
+    color: rgb(4, 154, 214);
+}
 
 #navButtons {
 	float: right;
@@ -146,6 +180,17 @@ body {
 #imageCloud .imageTile img {
     width: auto;
     height: 100%;
+}
+
+#imageCloud .imageTile .click-counter {
+    color: white;
+    display: inline-block;
+    background-color: black;
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 1px 4px;   
 }
 
 #preview {

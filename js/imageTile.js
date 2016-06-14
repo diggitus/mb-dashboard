@@ -2,6 +2,7 @@ function ImageTile(tileId, tilePosX, tilePosY, tileCountX, tileCountY, singleTil
 	'use strict';
 
 	var SHADOW_CLASS = 'shadow';
+	var COUNTER_CLASS = 'click-counter';
 
 	var tileId = 'tile' + tileId;
 	var tilePosX = tilePosX;
@@ -51,6 +52,7 @@ function ImageTile(tileId, tilePosX, tilePosY, tileCountX, tileCountY, singleTil
 
 		var html = '';
         html += '<div id="' + tileId + '" class="imageTile" style="' + tileStyle + '">';
+        html += '	<div class="' + COUNTER_CLASS + '">' + Math.floor((Math.random() * 1000) + 1) + '</div>';
         html += '	<img style="' + imageStyle + '" src="' + imageData.path + '" alt="' + imageData.path + '">';
         html += '	<div class="' + SHADOW_CLASS + '" style="display:none;"></div>';
         html += '</div>';
@@ -81,6 +83,7 @@ function ImageTile(tileId, tilePosX, tilePosY, tileCountX, tileCountY, singleTil
 
 		getUiElement().fadeOut(2000, function() {
 			var html = '';
+			html += '<div class="' + COUNTER_CLASS + '">' + Math.floor((Math.random() * 1000) + 1) + '</div>';
 	        html += '<img style="' + imageStyle + '" src="' + imageData.path + '" alt="' + imageData.path + '">';
 	        html += '<div class="' + SHADOW_CLASS + '" style="display:none;"></div>';
 	        getUiElement().html(html);

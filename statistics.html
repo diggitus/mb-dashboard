@@ -18,32 +18,81 @@
 
 <body>
     <div id="lightbox" style="display:none;"></div>
-
     <div id="navbar">
         <img id="logo" src="images/logo.png">
-
         <div id="main-nav">
             <ul>
-                <li><a href="#" class="active">Dashboard</a></li>
-                <li><a href="statistics.html">Statistics</a></li>
-            </ul>            
+                <li><a href="imageCloud.html">Dashboard</a></li>
+                <li><a href="#" class="active">Statistics</a></li>
+            </ul>
         </div>
-
         <div id="navButtons">
-	        <div id="uploadAssetBtn" class="cyanBtn">
-	            Upload Asset<i class="fa fa-cloud-upload fa-lg"></i>
-	        </div>
-	        <div id="searchBtn" class="cyanBtn">
-	        	Search<i class="fa fa-search"></i>
-	        </div>
-            <div></div>
-    	</div>
+            <div id="uploadAssetBtn" class="cyanBtn">
+                Upload Asset<i class="fa fa-cloud-upload fa-lg"></i>
+            </div>
+            <div id="searchBtn" class="cyanBtn">
+                Search<i class="fa fa-search"></i>
+            </div>
+        </div>
     </div>
-
-    <div id="imageCloud">
-        <div id="preview" style="display:none;"></div>
+    <div id="content" class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">Your Assets</div>
+            <!-- Table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Asset Title</th>
+                        <th># Ref</th>
+                        <th>TOP-Downloads</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td>C-Class W156</td>
+                    <td>100</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>C-Class W156</td>
+                    <td>3</td>
+                    <td>178</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>E-Class W178</td>
+                    <td>7</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>CLA Shooting Brake</td>
+                    <td>56</td>
+                    <td>1231</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>C-Class W156</td>
+                    <td>3</td>
+                    <td>178</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>E-Class W178</td>
+                    <td>7</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>CLA Shooting Brake</td>
+                    <td>56</td>
+                    <td>1231</td>
+                </tr>
+            </table>
+        </div>
     </div>
-    
     <div id="uploadDialog" class="dialog" style="display:none;">
         <div class="closeBtn"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></div>
         <div class="title">Upload Asset</div>
@@ -75,22 +124,16 @@
             </div>
         </div>
     </div>
-
     <div id="searchDialog" class="dialog" style="display:none">
-    	<div class="row">
+        <div class="row">
             <div class="col-lg-10">
                 <input type="text" class="form-control" placeholder="Search ...">
             </div>
             <div id="dialogSearchBtn">
-        	   <i class="fa fa-search fa-lg"></i>
+                <i class="fa fa-search fa-lg"></i>
             </div>
         </div>
     </div>
-
-    <script type="text/javascript">
-    	var imageCloud = new ImageCloud();
-    	imageCloud.init();
-    </script>
 </body>
 
 </html>
