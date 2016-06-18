@@ -1,7 +1,18 @@
-<h1>App</h1>
+<div id="mbc-main-container">
+    <header id="mbc-header" class="mbc-row">
+        <div id="mbc-navi-wrapper">
+            <nav id="mbc-main-nav">
+                <ul>
+                    <li><a [routerLink]="['Dashboard']" class="mbc-main-nav-link">Dashboard</a></li>
+                    <li><a href="#" class="mbc-main-nav-link">Statistics</a></li>
+                </ul>
+            </nav>
+        </div>
 
-<nav>
-	<a [routerLink]="['Dashboard']">Dashboard</a>
-</nav>
+        <!-- MB logo -->
+        <a href="/home" id="mbc-iaa-logo"></a>
+        <a href="/home" id="mbc-iaa-claim"></a>
+    </header>
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+</div>

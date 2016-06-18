@@ -1,0 +1,87 @@
+#mbc-main-container {
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+#mbc-header {
+    position: relative;
+    height: 110px;
+}
+
+.mbc-row {
+    width: 100%;
+}
+
+#mbc-navi-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: visible;
+}
+
+#mbc-header #mbc-iaa-logo {
+    display: block;
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    top: 23px;
+    left: 77px;
+    background-image: url("app/assets/images/star.svg");
+    background-repeat: no-repeat;
+    background-size: 65px;
+}
+
+#mbc-header #mbc-iaa-claim {}
+
+#mbc-header #mbc-iaa-claim {
+    display: block;
+    position: absolute;
+    background-image: url("app/assets/images/claim_DE.svg");
+    background-size: 112px 28px;
+    width: 112px;
+    top: 2px;
+    height: 28px;
+    background-repeat: no-repeat;
+    margin-left: 207px;
+    margin-top: 53px;
+    padding-right: 15px;
+    border-right: 1px solid #999;
+}
+
+#mbc-header #mbc-main-nav {
+    position: absolute;
+    right: 2px;
+    bottom: 0px;
+}
+
+#mbc-header #mbc-main-nav ul {
+    list-style: none;
+    position: relative;
+}
+
+#mbc-header #mbc-main-nav li {
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 22px;
+}
+
+#mbc-header #mbc-main-nav .mbc-main-nav-link {
+    position: relative;
+    font-weight: normal;
+    font-family: "CorporateSRegular", "Times New Roman", "Arial", serif;
+    line-height: 16px;
+    font-size: 16px;
+    padding-bottom: 13px;
+    padding-left: 0;
+    padding-right: 0px;
+    box-sizing: border-box;
+}
+
+#mbc-header #mbc-main-nav .mbc-main-nav-link:hover {
+    color: #00adef;
+}
+
+#mbc-header #mbc-main-nav .mbc-main-nav-link.router-link-active {
+    color: #00adef;
+}
