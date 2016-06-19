@@ -1,5 +1,7 @@
 <h1>Dashboard Component</h1>
 
+<input id="in" type="text" size="30" pInputText [(ngModel)]="text" /> &nbsp; {{text}}
+
 <ul *ngFor="let tile of tiles">
 	<li>{{tile.path}}</li>
 </ul>
