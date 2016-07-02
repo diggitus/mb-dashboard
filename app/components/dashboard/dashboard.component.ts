@@ -1,32 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { Tile } from './tile';
-import { TileService } from './tile.service';
-import { InputText } from 'primeng/primeng';
-
+import { TileComponent } from './tile.component';
+import { DashboardService } from './dashboard.service';
+import { Asset } from './asset';
 
 @Component({
 	selector: 'dashboard',
 	templateUrl: 'app/components/dashboard/dashboard.component.html',
 	styleUrls: ['app/components/dashboard/dashboard.component.css'],
-	providers: [TileService],
-	directives: [InputText]
+	providers: [DashboardService],
+	directives: [TileComponent]
 })
 export class DashboardComponent implements OnInit {
 
-	tiles: Tile[] = [];
-	text: string;
+	private assets: Asset[] = [];
+	private text: string;
 
-	constructor(
-		private _tileService: TileService) { 
+	/**
+	 * Constructor.
+	 * @param {DashboardService} The dashboad service.
+	 */	
+	public constructor(
+		private _dashboardService: DashboardService) { 
 	}
 
-	getTiles() {
-		return this._tileService.getTiles()
-			.then(tiles => this.tiles = tiles);
+	/**
+	 * Get assets which will be displayed in the dashboard.
+	 */
+	getAssets() {
+		return this._dashboardService.getAssets()
+			.then(assets => this.assets = assets);
 	}
 
+	/**
+	 * Initialize dashboard.
+	 */
 	ngOnInit() {
-		this.getTiles();
+		this.getAssets();
 	}
 
 }

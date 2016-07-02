@@ -1,6 +1,6 @@
-import { Tile } from './tile';
+import { Asset } from './asset';
 
-export var TILES: Tile[] = [
+export var ASSETS: Asset[] = [
 	{
 		"path": "images/a45-amg.jpg",
 		"width": 1024,
