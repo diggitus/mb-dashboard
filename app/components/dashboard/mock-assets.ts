@@ -1,6 +1,6 @@
 import { Asset } from './asset';
 
-export var ASSETS: Asset[] = [
+export let ASSETS: Asset[] = [
 	{
 		"path": "images/a45-amg.jpg",
 		"width": 1024,

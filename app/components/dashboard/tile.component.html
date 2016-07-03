@@ -1,1 +1,12 @@
-<div>Tile1</div>
+<div class="ui-tile" [style.width.px]="width" [style.height.px]="height" [style.top.px]="top" [style.left.px]="left">
+
+    <div class="ui-tile-inner" [style.width.px]="width - border" [style.height.px]="height - border"
+    [style.top.px]="top + border/2" [style.left.px]="left + border/2">
+
+        <img src="{{asset.path}}"
+            [style.width.px]="imgWidth" [style.height.px]="imgHeight"
+            [style.margin-top.px]="imgMarginTop" [style.margin-left.px]="imgMarginLeft"/>
+
+    </div>
+
+</div>

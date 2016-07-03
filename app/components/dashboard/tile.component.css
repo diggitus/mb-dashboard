@@ -1,0 +1,10 @@
+.ui-tile {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    cursor: pointer;
+}
+
+.ui-tile .ui-tile-inner {
+    overflow: hidden;
+}

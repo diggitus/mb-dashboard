@@ -1,7 +1,7 @@
-<h1>Dashboard Component</h1>
+<div id="ui-dashboard">
 
-<tile></tile>
+    <div id="ui-dashboard-tiles">
+        <tile *ngFor="let tile of tiles" [asset]=tile.asset [width]="tile.width" [height]="tile.height" [top]="tile.top" [left]="tile.left"></tile>
+    </div>
 
-<ul *ngFor="let asset of assets">
-	<li>{{ asset.path }}</li>
-</ul>
+</div>
