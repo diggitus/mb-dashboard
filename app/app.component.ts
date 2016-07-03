@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 import { AssetUploadComponent } from './components/dialogs/asset-upload.dialog.component';
 
 @Component({
@@ -17,7 +18,12 @@ import { AssetUploadComponent } from './components/dialogs/asset-upload.dialog.c
 		name: 'Dashboard',
 		component: DashboardComponent,
 		useAsDefault: true
-	}
+	},
+    {
+        path: '/statistics',
+        name: 'Statistics',
+        component: StatisticsComponent
+    }
 ])
 export class AppComponent {
 
