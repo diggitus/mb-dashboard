@@ -3,6 +3,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { MyAssetsComponent } from './components/my-assets/my-assets.component';
 import { AssetUploadComponent } from './components/dialogs/asset-upload.dialog.component';
 
 @Component({
@@ -23,6 +24,11 @@ import { AssetUploadComponent } from './components/dialogs/asset-upload.dialog.c
         path: '/statistics',
         name: 'Statistics',
         component: StatisticsComponent
+    },
+    {
+        path: '/my-assets',
+        name: 'My Assets',
+        component: MyAssetsComponent
     }
 ])
 export class AppComponent {
