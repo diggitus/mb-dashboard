@@ -1,8 +1,0 @@
-TODO:
-------
-
-- Am unteren Bildschirmrand werden die aktuell hochgeladenen Assets angezeigt
-	- Titel des Assets
-	- Thumbnail
-	- Tags
-	- Uploader
