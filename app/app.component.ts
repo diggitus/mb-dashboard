@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import { AssetUploadComponent } from './components/dialogs/asset-upload.dialog.component';
-import { AssetDetailComponent } from './components/asset-detail/asset-detail.component';
+import { AssetDetailComponent } from './components/asset/asset-detail.component';
 
 @Component({
     selector: 'my-app',

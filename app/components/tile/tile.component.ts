@@ -1,12 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Asset } from './asset';
+import { Asset } from '../asset/asset';
 import { Router } from '@angular/router';
 
 
 @Component({
 	selector: 'tile',
-	templateUrl: 'app/components/dashboard/tile.component.html',
-    styleUrls: ['app/components/dashboard/tile.component.css']
+	templateUrl: 'app/components/tile/tile.component.html',
+    styleUrls: ['app/components/tile/tile.component.css']
 })
 export class TileComponent implements OnInit {
 

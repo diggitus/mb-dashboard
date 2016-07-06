@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { TileComponent } from './tile.component';
-import { DashboardService } from './dashboard.service';
-import { Tile } from './tile';
-import { Asset } from './asset';
+import { TileComponent } from '../tile/tile.component';
+import { AssetService } from '../asset/asset.service';
+import { Tile } from '../tile/tile';
+import { Asset } from '../asset/asset';
 
 
 @Component({
   selector: 'dashboard',
   templateUrl: 'app/components/dashboard/dashboard.component.html',
   styleUrls: ['app/components/dashboard/dashboard.component.css'],
-  providers: [DashboardService],
+  providers: [AssetService],
   directives: [TileComponent]
 })
 export class DashboardComponent implements OnInit {
@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
    * @param {DashboardService} The dashboad service.
    */
   public constructor(
-    private _dashboardService: DashboardService) {
+    private _assetService: AssetService) {
   }
 
   /**
@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
    * Get assets which will be displayed in the dashboard.
    */
   protected getAssets():void {
-    this._dashboardService.getAssets().then(assets => {
+    this._assetService.getAssets().then(assets => {
           this.tiles = this.getTiles(assets);
       });
   }

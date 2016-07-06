@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Asset } from '../dashboard/asset';
+import { Asset } from './asset';
 
 
 @Component({
   selector: 'asset-detail',
-  templateUrl: 'app/components/asset-detail/asset-detail.component.html'
+  templateUrl: 'app/components/asset/asset-detail.component.html'
 })
 export class AssetDetailComponent implements OnInit {
 

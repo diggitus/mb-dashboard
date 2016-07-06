@@ -4,7 +4,7 @@ import { Asset } from './asset';
 import { ASSETS } from './mock-assets';
 
 @Injectable()
-export class DashboardService {
+export class AssetService {
 
 	/**
 	 * Constructor.
