@@ -27,7 +27,7 @@
     height: 65px;
     top: 23px;
     left: 77px;
-    background-image: url("app/assets/images/star.svg");
+    background-image: url("app/resources/images/star.svg");
     background-repeat: no-repeat;
     background-size: 65px;
 }
@@ -37,7 +37,7 @@
 #mbc-header #mbc-iaa-claim {
     display: block;
     position: absolute;
-    background-image: url("app/assets/images/claim_DE.svg");
+    background-image: url("app/resources/images/claim_DE.svg");
     background-size: 112px 28px;
     width: 112px;
     top: 2px;

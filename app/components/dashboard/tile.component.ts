@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Asset } from './asset';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class TileComponent implements OnInit {
     /**
      * Constuctor.
      */
-	public constructor() {}
+	public constructor(private router:Router) {}
 
     /**
      * Initalize tile component.
@@ -41,6 +42,11 @@ export class TileComponent implements OnInit {
 	public ngOnInit() {
 		this.getImageSize();
 	}
+
+    public openAssetDetail(asset: Asset) {
+        let link = ['/asset-detail', asset.id];
+        this.router.navigate(link);
+    }
 
     /**
      * Returns the correct image size for the current tile.

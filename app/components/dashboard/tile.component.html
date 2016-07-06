@@ -1,4 +1,5 @@
-<div class="ui-tile" [style.width.px]="width" [style.height.px]="height" [style.top.px]="top" [style.left.px]="left">
+<div class="ui-tile" [style.width.px]="width" [style.height.px]="height" [style.top.px]="top" [style.left.px]="left"
+    (click)="openAssetDetail(asset)">
 
     <div class="ui-tile-inner" [style.width.px]="width - border" [style.height.px]="height - border"
     [style.top.px]="top + border/2" [style.left.px]="left + border/2">

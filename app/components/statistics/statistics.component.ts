@@ -14,7 +14,7 @@ import { trigger, state, style, transition, animate } from '@angular/core';
           animate(1000)
         ]),
         transition('* => void', [
-          animate(1000, style({transform: 'translateX(100%)'}))
+          animate(1000, style({transform: 'translateX(0)'}))
         ])
       ])
   ]
