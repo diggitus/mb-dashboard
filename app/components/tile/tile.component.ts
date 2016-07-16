@@ -1,12 +1,14 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Asset } from '../asset/asset';
 import { Router } from '@angular/router';
+import { Rating } from 'primeng/primeng';
 
 
 @Component({
     selector: 'tile',
     templateUrl: 'app/components/tile/tile.component.html',
-    styleUrls: ['app/components/tile/tile.component.css']
+    styleUrls: ['app/components/tile/tile.component.css'],
+    directives: [Rating]
 })
 export class TileComponent implements OnInit {
 
@@ -30,6 +32,8 @@ export class TileComponent implements OnInit {
 
     border: number = 4;
     showShadow: boolean = false;
+    showOverlay: boolean = false;
+    
 
 
     /**
@@ -46,10 +50,12 @@ export class TileComponent implements OnInit {
 
     @HostListener('mouseenter') onMouseEnter() {
         this.showShadow = true;
+        this.showOverlay = true;
     }
 
     @HostListener('mouseleave') onMouseLeave() {
         this.showShadow = false;
+        this.showOverlay = false;
     }
 
     public openAssetDetail(asset: Asset) {

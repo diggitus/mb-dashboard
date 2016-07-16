@@ -1,12 +1,46 @@
-<div class="ui-tile" [style.width.px]="width" [style.height.px]="height" [style.top.px]="top" [style.left.px]="left"
-    (click)="openAssetDetail(asset)">
+<div *ngIf="showOverlay" class="overlayPanel" [style.top.px]="top" [style.left.px]="left + width">
+    <div class="thumbnail">
+        <img src="{{asset.path}}" alt="{{asset.path}}" />
+    </div>
 
-    <div class="ui-tile-inner" [style.width.px]="width - border" [style.height.px]="height - border"
-    [style.top.px]="top + border/2" [style.left.px]="left + border/2">
+    <div class="filename">C-Class relaunch</div>
 
-        <img src="{{asset.path}}"
-            [style.width.px]="imgWidth" [style.height.px]="imgHeight"
-            [style.margin-top.px]="imgMarginTop" [style.margin-left.px]="imgMarginLeft"/>
+    <table>
+        <tbody>
+            <tr>
+                <td>Rating:</td>
+                <td>
+                    <p-rating readonly="true" stars="5" [cancel]="false"></p-rating>
+                </td>
+            </tr>
+            <tr>
+                <td>Filetype:</td>
+                <td>image/jpeg</td>
+            </tr>
+            <tr>
+                <td>Resolution:</td>
+                <td>800 x 600 px</td>
+            </tr>
+            <tr>
+                <td>Filesize:</td>
+                <td>650 kb</td>
+            </tr>
+            <tr>
+                <td>Tags:</td>
+                <td>W168, Flyer, Event</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="ui-tile" [style.width.px]="width" [style.height.px]="height" [style.top.px]="top" [style.left.px]="left" (click)="openAssetDetail(asset)">
+
+    <div class="ui-tile-inner" [style.width.px]="width - border" [style.height.px]="height - border" [style.top.px]="top + border/2"
+        [style.left.px]="left + border/2">
+
+        <img src="{{asset.path}}" [style.width.px]="imgWidth" [style.height.px]="imgHeight" [style.margin-top.px]="imgMarginTop"
+            [style.margin-left.px]="imgMarginLeft" />
 
     </div>
 
