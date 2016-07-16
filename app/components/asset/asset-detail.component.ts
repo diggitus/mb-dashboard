@@ -5,20 +5,20 @@ import { Asset } from './asset';
 
 
 @Component({
-  selector: 'asset-detail',
-  templateUrl: 'app/components/asset/asset-detail.component.html'
+    selector: 'asset-detail',
+    templateUrl: 'app/components/asset/asset-detail.component.html'
 })
 export class AssetDetailComponent implements OnInit {
 
-    private asset:Asset;
-    private sub:any;
-    private id:number;
+    private asset: Asset;
+    private sub: any;
+    private id: number;
 
     /**
     * Constructor.
     */
     public constructor(private route: ActivatedRoute) {
-      // nothing
+        // nothing
     }
 
     /**

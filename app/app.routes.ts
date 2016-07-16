@@ -6,11 +6,11 @@ import { MyAssetsComponent } from './components/my-assets/my-assets.component';
 import { AssetDetailComponent } from './components/asset/asset-detail.component';
 
 const routes: RouterConfig = [
-	{ path: 'dashboard', component: DashboardComponent },
-    { path: 'statistics', component: StatisticsComponent },
-    { path: 'my-assets', component: MyAssetsComponent },
-    { path: 'asset-detail/:id', component: AssetDetailComponent },
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'statistics', component: StatisticsComponent },
+  { path: 'my-assets', component: MyAssetsComponent },
+  { path: 'asset-detail/:id', component: AssetDetailComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 export const APP_ROUTER_PROVIDERS = [

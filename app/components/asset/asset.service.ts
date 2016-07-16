@@ -18,7 +18,7 @@ export class AssetService {
 	 * 
 	 * @return {Promise<Asset[]>} list of assets.
 	 */
-	public getAssets():Promise<Asset[]> {
+	public getAssets(): Promise<Asset[]> {
 		return Promise.resolve(ASSETS);
 	}
 

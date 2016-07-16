@@ -11,14 +11,14 @@ export class MyAssetsComponent implements OnInit {
    * Constructor.
    */
   public constructor() {
-      // nothing
+    // nothing
   }
 
   /**
    * Initialize.
    */
   public ngOnInit() {
-      // nothing
+    // nothing
   }
 
 }

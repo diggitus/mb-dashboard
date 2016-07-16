@@ -2,19 +2,19 @@ import { Asset } from '../asset/asset';
 
 export class Tile {
 
-    private _asset:Asset;
-    private _width:number;
-    private _height:number;
-    private _top:number;
-    private _left:number;
+    private _asset: Asset;
+    private _width: number;
+    private _height: number;
+    private _top: number;
+    private _left: number;
 
     public constructor(
-        asset:Asset,
-        width:number,
-        height:number,
-        top:number,
-        left:number
-        ) {
+        asset: Asset,
+        width: number,
+        height: number,
+        top: number,
+        left: number
+    ) {
         this._asset = asset;
         this._width = width;
         this._height = height;
@@ -22,43 +22,43 @@ export class Tile {
         this._left = left;
     }
 
-    get asset():Asset {
+    get asset(): Asset {
         return this._asset;
     }
 
-    set asset(asset:Asset) {
+    set asset(asset: Asset) {
         this._asset = asset;
     }
 
-    get width():number {
+    get width(): number {
         return this._width;
     }
 
-    set width(width:number) {
+    set width(width: number) {
         this._width = width;
     }
 
-    get height():number {
+    get height(): number {
         return this._height;
     }
 
-    set height(height:number) {
+    set height(height: number) {
         this._height = height;
     }
 
-    get top():number {
+    get top(): number {
         return this._top;
     }
 
-    set top(top:number) {
+    set top(top: number) {
         this._top = top;
     }
 
-    get left():number {
+    get left(): number {
         return this._left;
     }
 
-    set left(left:number) {
+    set left(left: number) {
         this._left = left;
     }
 

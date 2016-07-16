@@ -4,44 +4,44 @@ import { Router } from '@angular/router';
 
 
 @Component({
-	selector: 'tile',
-	templateUrl: 'app/components/tile/tile.component.html',
+    selector: 'tile',
+    templateUrl: 'app/components/tile/tile.component.html',
     styleUrls: ['app/components/tile/tile.component.css']
 })
 export class TileComponent implements OnInit {
 
-    @Input() asset:Asset;
+    @Input() asset: Asset;
 
-    @Input() width:number;
+    @Input() width: number;
 
-    @Input() height:number;
+    @Input() height: number;
 
-    @Input() top:number;
+    @Input() top: number;
 
-    @Input() left:number;
+    @Input() left: number;
 
-    @Input() imgWidth:number;
+    @Input() imgWidth: number;
 
-    @Input() imgHeight:number;
+    @Input() imgHeight: number;
 
-    @Input() imgMarginTop:number;
+    @Input() imgMarginTop: number;
 
-    @Input() imgMarginLeft:number;
+    @Input() imgMarginLeft: number;
 
-    border:number = 4;
+    border: number = 4;
 
 
     /**
      * Constuctor.
      */
-	public constructor(private router:Router) {}
+    public constructor(private router: Router) { }
 
     /**
      * Initalize tile component.
      */
-	public ngOnInit() {
-		this.getImageSize();
-	}
+    public ngOnInit() {
+        this.getImageSize();
+    }
 
     public openAssetDetail(asset: Asset) {
         let link = ['/asset-detail', asset.id];
