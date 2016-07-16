@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Asset } from '../asset/asset';
 import { Router } from '@angular/router';
 
@@ -29,6 +29,7 @@ export class TileComponent implements OnInit {
     @Input() imgMarginLeft: number;
 
     border: number = 4;
+    showShadow: boolean = false;
 
 
     /**
@@ -41,6 +42,14 @@ export class TileComponent implements OnInit {
      */
     public ngOnInit() {
         this.getImageSize();
+    }
+
+    @HostListener('mouseenter') onMouseEnter() {
+        this.showShadow = true;
+    }
+
+    @HostListener('mouseleave') onMouseLeave() {
+        this.showShadow = false;
     }
 
     public openAssetDetail(asset: Asset) {
