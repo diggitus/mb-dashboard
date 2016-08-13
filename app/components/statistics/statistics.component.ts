@@ -25,6 +25,7 @@ export class StatisticsComponent implements OnInit {
    * Constructor.
    */
   public constructor() {
+    // nothing
   }
 
   /**
