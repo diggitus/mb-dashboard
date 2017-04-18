@@ -1,0 +1,7 @@
+<div id="ui-dashboard">
+
+    <div id="ui-dashboard-tiles">
+        <tile *ngFor="let tile of tiles" [asset]=tile.asset [width]="tile.width" [height]="tile.height" [top]="tile.top" [left]="tile.left"></tile>
+    </div>
+
+</div>

@@ -1,0 +1,63 @@
+<p-dialog header="Asset Upload" [(visible)]="display" width="600" modal="true" [(draggable)]="draggable" [(resizable)]="resizable">
+
+    <form #assetUploadForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <p-panel header="Asset Upload">
+            <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+                <!--title field-->
+                <div class="ui-grid-row" class="form-group">
+                    <div class="ui-grid-col-2">
+                        <label for="title">Title *:</label>
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input pInputText id="title" class="form-control" type="text" name="title" />
+                    </div>
+                </div>
+
+                <!--description field-->
+                <div class="ui-grid-row" class="form-group">
+                    <div class="ui-grid-col-2">
+                        <label for="description">Description:</label>
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <textarea pInputTextarea id="description" class="form-control" type="text" name="description"></textarea>
+                    </div>
+                    <div class="ui-grid-col-4"></div>
+                </div>
+
+                <!--tags field-->
+                <div class="ui-grid-row" class="form-group">
+                    <div class="ui-grid-col-2">
+                        <label for="tags">Tags *:</label>
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <input pInputText id="tags" class="form-control" type="text" name="tags" />
+                    </div>
+                </div>
+
+                <!--tags2 field-->
+                <div class="ui-grid-row" class="form-group">
+                    <div class="ui-grid-col-2">
+                        <label for="tags2">Tags2 *:</label>
+                    </div>
+                    <div class="ui-grid-col-6">
+                        <p-multiSelect id="tags2" class="form-control" [options]="cities" [(ngModel)]="selectedCities" name="tags2"></p-multiSelect>
+                    </div>
+                </div>
+
+            </div>
+        </p-panel>
+
+        <footer>
+            <!--submit button-->
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button pButton type="submit" label="Submit" [disabled]="!assetUploadForm.form.valid"></button>
+            </div>
+        </footer>
+
+    </form>
+
+</p-dialog>
+
+<button type="text" (click)="showDialog()" pButton icon="fa-external-link-square" label="Show"></button>

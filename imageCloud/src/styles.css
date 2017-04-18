@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "CorporateSRegular";
+    src: url('assets/fonts/corporsr-webfont.eot');
+    src: url('assets/fonts/corporsr-webfont.eot?#iefix') format('embedded-opentype'), url('assets/fonts/corporsr-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+header {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: block;
+}
+
+html {
+    background: #000 url('assets/images/page-bg.png') repeat-x 0 0;
+}
+
+body {
+    margin: 0;
+    color: #f0f0f0;
+}
+
+a {
+    color: #f0f0f0;
+    text-decoration: none;
+}

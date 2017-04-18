@@ -1,0 +1,71 @@
+.ui-tile {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    cursor: pointer;
+}
+
+.ui-tile .ui-tile-inner {
+    overflow: hidden;
+}
+
+.ui-tile .shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    box-shadow: inset 0px 0px 100px -10px rgba(0,0,0,0.75);
+    -webkit-box-shadow: inset 0px 0px 100px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 100px -10px rgba(0,0,0,0.75);
+    -ms-box-shadow: inset 0px 0px 100px -10px rgba(0,0,0,0.75);
+    z-index: 100;
+}
+
+.overlayPanel {
+    position: absolute;
+    font-size: 11px;
+    display: block;
+	padding: 8px;
+    top: 0;
+    left: 0;
+    width: 200px;
+    z-index: 200;
+    background-color: #111111;
+	box-shadow: 0px 0px 30px 0px rgba(0,0,0,1);
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,1);
+    -ms-box-shadow: 0px 0px 30px 0px rgba(0,0,0,1);
+}
+
+.overlayPanel .thumbnail {
+	display: block;
+}
+
+.overlayPanel .thumbnail img {
+	max-height: 100%;
+	max-width: 100%;
+	border: 1px solid white;
+}
+
+.overlayPanel .filename {
+    font-family: 'CorporateSRegular';
+    font-size: 14px;
+	color: rgb(4, 154, 214);
+	margin: 6px 0;
+}
+
+.overlayPanel table {
+    font-family: 'CorporateSRegular';
+    font-size: 12px;
+	color: #999;
+	width: 100%;
+}
+
+.overlayPanel table td:nth-child(1) {
+	padding: 2px 2px 2px 0;
+}
+
+.overlayPanel table td:nth-child(2) {
+	color: #CCC;
+}
