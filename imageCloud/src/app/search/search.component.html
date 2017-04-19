@@ -1,0 +1,2 @@
+<search-box (loading)="loading = $event" (results)="updateResults($event)"></search-box>
+<search-result *ngFor="let result of results" [result]="result"></search-result>

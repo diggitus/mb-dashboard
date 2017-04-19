@@ -14,6 +14,10 @@ import { AssetUploadDialogComponent } from './asset-upload-dialog/asset-upload-d
 import { ImageEditorComponent } from './image-editor/image-editor.component';
 import { MyAssetsComponent } from './my-assets/my-assets.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { SearchComponent } from './search/search.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchService } from "app/search/search.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { StatisticsComponent } from './statistics/statistics.component';
     AssetUploadDialogComponent,
     ImageEditorComponent,
     MyAssetsComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    SearchComponent,
+    SearchBoxComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
       { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
     ])
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
