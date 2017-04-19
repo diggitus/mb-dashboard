@@ -28,4 +28,8 @@ export class SearchBoxComponent implements OnInit {
         this.results.next(results);
       });
   }
+
+  triggerSearch() {
+    this.results.next(this.searchService.search("test"));
+  }
 }
