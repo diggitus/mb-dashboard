@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
     private TILE_HEIGHT: number = (window.innerHeight - 150) / this.GRID_ROWS;
     private TILE_WIDTH: number = (window.innerWidth - 10) / this.GRID_COLS;
 
-    private tiles: Tile[];
+    tiles: Tile[];
     private grid: number[][];
 
     /**

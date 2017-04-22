@@ -29,7 +29,7 @@ export class SearchBoxComponent implements OnInit {
       });
   }
 
-  triggerSearch() {
+  triggerSearch(e:Event) {
     this.results.next(this.searchService.search("test"));
   }
 }

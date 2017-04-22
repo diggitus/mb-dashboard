@@ -11,7 +11,7 @@ export class AssetDetailComponent implements OnInit {
 
     private asset: Asset;
     private sub: any;
-    private id: number;
+    id: number;
 
     /**
     * Constructor.
