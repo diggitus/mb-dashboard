@@ -45,10 +45,5 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.2.0"
-  },
-  "styles": [
-    "../node_modules/primeng/resources/primeng.min.css",
-    "../node_modules/primeng/resources/themes/omega/theme.css",
-    "../node_modules/font-awesome/css/font-awesome.min.css"
-  ]
+  }
 }
