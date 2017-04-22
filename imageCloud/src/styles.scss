@@ -1,3 +1,5 @@
+$backgroundColor: #000;
+
 @font-face {
     font-family: "CorporateSRegular";
     src: url('assets/fonts/corporsr-webfont.eot');
@@ -17,7 +19,7 @@ nav {
 }
 
 html {
-    background: #000 url('assets/images/page-bg.png') repeat-x 0 0;
+    background: $backgroundColor url('assets/images/page-bg.png') repeat-x 0 0;
 }
 
 body {
