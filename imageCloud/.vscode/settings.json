@@ -1,0 +1,15 @@
+// Platzieren Sie Ihre Einstellungen in dieser Datei, um Standard- und Benutzereinstellungen zu überschreiben.
+{
+    "tslint.configFile": "tslint.json",
+    "tslint.autoFixOnSave": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/node_modules/[a-o | q-z]*":true,
+        "**/node_modules/p[a-q | s-z]*":true,
+        "**/node_modules/pr[a-h | j-z]*":true
+    }
+}
