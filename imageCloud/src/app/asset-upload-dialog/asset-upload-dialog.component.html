@@ -1,53 +1,55 @@
-<p-dialog header="Asset Upload" [(visible)]="display" width="600" modal="true" [(draggable)]="draggable" [(resizable)]="resizable">
+<button type="text" (click)="showDialog()" pButton icon="fa-external-link-square" label="Show"></button>
 
-    <form #assetUploadForm="ngForm" (ngSubmit)="onSubmit()">
+<p-dialog header="Asset Upload" [(visible)]="display" width="600" modal="true" dismissableMask="true" [(draggable)]="draggable"
+    [(resizable)]="resizable">
 
-        <p-panel header="Asset Upload">
-            <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+    <form (ngSubmit)="onSubmit(); assetUploadForm.reset();" #assetUploadForm="ngForm">
 
-                <!--title field-->
-                <div class="ui-grid-row" class="form-group">
-                    <div class="ui-grid-col-2">
-                        <label for="title">Title *:</label>
-                    </div>
-                    <div class="ui-grid-col-6">
-                        <input pInputText id="title" class="form-control" type="text" name="title" />
-                    </div>
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+            <!--title field-->
+            <div class="ui-g">
+                <div class="ui-g-3">
+                    <label for="title">Title *:</label>
                 </div>
-
-                <!--description field-->
-                <div class="ui-grid-row" class="form-group">
-                    <div class="ui-grid-col-2">
-                        <label for="description">Description:</label>
-                    </div>
-                    <div class="ui-grid-col-6">
-                        <textarea pInputTextarea id="description" class="form-control" type="text" name="description"></textarea>
-                    </div>
-                    <div class="ui-grid-col-4"></div>
+                <div class="ui-g-9">
+                    <input pInputText id="title" type="text" name="title" [(ngModel)]="title" required #titleRef="ngModel" />
+                    <div class="error" [hidden]="titleRef.valid || titleRef.pristine">This field is required.</div>
                 </div>
-
-                <!--tags field-->
-                <div class="ui-grid-row" class="form-group">
-                    <div class="ui-grid-col-2">
-                        <label for="tags">Tags *:</label>
-                    </div>
-                    <div class="ui-grid-col-6">
-                        <input pInputText id="tags" class="form-control" type="text" name="tags" />
-                    </div>
-                </div>
-
-                <!--tags2 field-->
-                <div class="ui-grid-row" class="form-group">
-                    <div class="ui-grid-col-2">
-                        <label for="tags2">Tags2 *:</label>
-                    </div>
-                    <div class="ui-grid-col-6">
-                        <!--<p-multiSelect id="tags2" class="form-control" [options]="cities" [(ngModel)]="selectedCities" name="tags2"></p-multiSelect>-->
-                    </div>
-                </div>
-
             </div>
-        </p-panel>
+
+            <!--description field-->
+            <div class="ui-g">
+                <div class="ui-g-3">
+                    <label for="description">Description:</label>
+                </div>
+                <div class="ui-g-9">
+                    <textarea pInputTextarea id="description" type="text" name="description" [(ngModel)]="description"></textarea>
+                </div>
+            </div>
+
+            <!--tags field-->
+            <div class="ui-g">
+                <div class="ui-g-3">
+                    <label for="tags">Tags *:</label>
+                </div>
+                <div class="ui-g-9">
+                    <input pInputText id="tags" type="text" name="tags" [(ngModel)]="tags" required #tagsRef="ngModel" />
+                    <div class="error" [hidden]="tagsRef.valid || tagsRef.pristine">This field is required.</div>
+                </div>
+            </div>
+
+            <!--tags2 field-->
+            <div class="ui-g">
+                <div class="ui-g-3">
+                    <label for="tags2">Tags2:</label>
+                </div>
+                <div class="ui-g-9">
+                    <p-multiSelect id="tags2" [options]="cities" [(ngModel)]="selectedCities" [overlayVisible]="true" name="tags2"></p-multiSelect>
+                </div>
+            </div>
+
+        </div>
 
         <footer>
             <!--submit button-->
@@ -59,5 +61,3 @@
     </form>
 
 </p-dialog>
-
-<button type="text" (click)="showDialog()" pButton icon="fa-external-link-square" label="Show"></button>

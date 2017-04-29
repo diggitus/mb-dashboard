@@ -52,7 +52,7 @@ import { SearchService } from 'app/search/search.service';
       { path: 'my-assets', component: MyAssetsComponent },
       { path: 'asset-detail/:id', component: AssetDetailComponent },
       { path: 'image-editor', component: ImageEditorComponent },
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
     ])
   ],
   providers: [SearchService],
