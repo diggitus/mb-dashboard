@@ -8,17 +8,17 @@ export class AssetService {
   	/**
 	 * Constructor.
 	 */
-	public constructor() {
+    public constructor() {
 		// nothing
-	}
+    }
 
-	/**
-	 * Returns a list of assets.
-	 * 
-	 * @return {Promise<Asset[]>} list of assets.
-	 */
-	public getAssets(): Promise<Asset[]> {
-		return Promise.resolve(ASSETS);
-	}
+    /**
+     * Returns a list of assets.
+     *
+     * @return {Promise<Asset[]>} list of assets.
+     */
+    public getAssets(): Promise<Asset[]> {
+        return Promise.resolve(ASSETS);
+    }
 
 }

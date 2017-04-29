@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchResult } from "app/search/search-result";
+import { SearchResult } from 'app/search/search-result';
 
 @Component({
-  selector: 'search',
+  selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })

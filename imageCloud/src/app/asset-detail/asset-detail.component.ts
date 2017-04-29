@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Asset } from '../shared/asset';
 
 @Component({
-  selector: 'asset-detail',
+  selector: 'app-asset-detail',
   templateUrl: './asset-detail.component.html',
   styleUrls: ['./asset-detail.component.css']
 })
@@ -25,13 +25,13 @@ export class AssetDetailComponent implements OnInit {
     */
     public ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
-            let id = +params['id'];
+            const id = +params['id'];
             // this.heroService.getHero(id).then(hero => this.hero = hero);
             this.id = id;
         });
     }
 
-    public ngOnDestroy() {
+    public onDestroy() {
         this.sub.unsubscribe();
     }
 

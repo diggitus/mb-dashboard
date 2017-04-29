@@ -5,17 +5,17 @@ import { Tile } from '../tile/tile';
 import { Asset } from '../shared/asset';
 
 @Component({
-  selector: 'dashboard',
+  selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
   providers: [AssetService]
 })
 export class DashboardComponent implements OnInit {
 
-    private GRID_COLS: number = 20;
-    private GRID_ROWS: number = 10;
-    private GRID_CELL_EMPTY: number = 0;
-    private GRID_CELL_MARKED: number = 1;
+    private GRID_COLS = 20;
+    private GRID_ROWS = 10;
+    private GRID_CELL_EMPTY = 0;
+    private GRID_CELL_MARKED = 1;
 
     private TILE_HEIGHT: number = (window.innerHeight - 150) / this.GRID_ROWS;
     private TILE_WIDTH: number = (window.innerWidth - 10) / this.GRID_COLS;
@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit {
      * @return {Tile[]} the tiles for the dashboard.
      */
     protected getTiles(assets: Asset[]): Tile[] {
-        let _tiles: Tile[] = [];
+        const _tiles: Tile[] = [];
 
         _tiles.push(this.getPositionedTile(assets[0], 7, 5, 1, 6));
         _tiles.push(this.getPositionedTile(assets[1], 3, 5, 4, 2));
@@ -77,12 +77,12 @@ export class DashboardComponent implements OnInit {
         _tiles.push(this.getPositionedTile(assets[3], 2, 3, 0, 0));
 
         while (this.isSpaceAvailable(3, 2)) {
-            let randomAsset = Math.floor(Math.random() * assets.length);
+            const randomAsset = Math.floor(Math.random() * assets.length);
             _tiles.push(this.getPositionedTile(assets[randomAsset], 3, 2, 0, 0));
         }
 
         while (this.isSpaceAvailable(1, 1)) {
-            let randomAsset = Math.floor(Math.random() * assets.length);
+            const randomAsset = Math.floor(Math.random() * assets.length);
             _tiles.push(this.getPositionedTile(assets[randomAsset], 1, 1, 0, 0));
         }
         return _tiles;
@@ -140,8 +140,8 @@ export class DashboardComponent implements OnInit {
      * @return {Tile} positioned tile.
      */
     protected getPositionedTile(asset: Asset, tileWidth: number, tileHeight: number, gridCellY: number, gridCellX: number): Tile {
-        for (var y = gridCellY; y < this.GRID_ROWS; y++) {
-            for (var x = gridCellX; x < this.GRID_COLS; x++) {
+        for (let y = gridCellY; y < this.GRID_ROWS; y++) {
+            for (let x = gridCellX; x < this.GRID_COLS; x++) {
 
                 if (this.isSpace(x, y, tileWidth, tileHeight)) {
                     this.updateGridCells(tileWidth, tileHeight, y, x);

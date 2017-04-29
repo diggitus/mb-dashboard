@@ -3,8 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from "@angular/router";
-import { RatingModule, DialogModule, ButtonModule, InputTextModule, InputTextareaModule, PanelModule, MultiSelectModule } from "primeng/primeng";
+import { RouterModule } from '@angular/router';
+import { RatingModule, DialogModule, ButtonModule, InputTextModule } from 'primeng/primeng';
+import { InputTextareaModule, PanelModule, MultiSelectModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { AssetDetailComponent } from './asset-detail/asset-detail.component';
@@ -17,7 +18,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { SearchComponent } from './search/search.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultComponent } from './search-result/search-result.component';
-import { SearchService } from "app/search/search.service";
+import { SearchService } from 'app/search/search.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { SearchService } from "app/search/search.service";
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule, 
+    HttpModule,
     RatingModule, DialogModule, ButtonModule, InputTextModule, InputTextareaModule, PanelModule, MultiSelectModule,
     RouterModule.forRoot([
       { path: 'dashboard', component: DashboardComponent },

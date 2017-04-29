@@ -1,18 +1,17 @@
-import { Component, OnInit, EventEmitter, ElementRef } from '@angular/core';
-import { SearchService } from "app/search/search.service";
-import { SearchResult } from "app/search/search-result";
-import { Observable } from "rxjs/Rx";
+import { Component, OnInit, EventEmitter, ElementRef, Output } from '@angular/core';
+import { SearchService } from 'app/search/search.service';
+import { SearchResult } from 'app/search/search-result';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
-  outputs: ['loading', 'results'],
-  selector: 'search-box',
+  selector: 'app-search-box',
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent implements OnInit {
 
-  loading: EventEmitter<boolean> = new EventEmitter<boolean>();
-  results: EventEmitter<SearchResult[]> = new EventEmitter<SearchResult[]>();
+  @Output() loading: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() results: EventEmitter<SearchResult[]> = new EventEmitter<SearchResult[]>();
 
   constructor(public searchService: SearchService, private el: ElementRef) { }
 
@@ -29,7 +28,7 @@ export class SearchBoxComponent implements OnInit {
       });
   }
 
-  triggerSearch(e:Event) {
-    this.results.next(this.searchService.search("test"));
+  triggerSearch(e: Event) {
+    this.results.next(this.searchService.search('test'));
   }
 }

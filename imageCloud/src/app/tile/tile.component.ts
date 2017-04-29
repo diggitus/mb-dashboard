@@ -4,7 +4,7 @@ import { Asset } from '../shared/asset';
 import { RatingModule } from 'primeng/primeng';
 
 @Component({
-  selector: 'tile',
+  selector: 'app-tile',
   templateUrl: './tile.component.html',
   styleUrls: ['./tile.component.css']
 })
@@ -28,9 +28,9 @@ export class TileComponent implements OnInit {
 
     @Input() imgMarginLeft: number;
 
-    border: number = 4;
-    showShadow: boolean = false;
-    showOverlay: boolean = false;
+    border = 4;
+    showShadow = false;
+    showOverlay = false;
 
     /**
      * Constuctor.
@@ -55,7 +55,7 @@ export class TileComponent implements OnInit {
     }
 
     public openAssetDetail(asset: Asset) {
-        let link = ['/asset-detail', asset.id];
+        const link = ['/asset-detail', asset.id];
         this.router.navigate(link);
     }
 

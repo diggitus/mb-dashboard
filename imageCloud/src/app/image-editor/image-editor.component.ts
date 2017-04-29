@@ -2,7 +2,7 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Button } from 'primeng/primeng';
 
 @Component({
-  selector: 'image-editor',
+  selector: 'app-image-editor',
   templateUrl: './image-editor.component.html',
   styleUrls: ['./image-editor.component.css']
 })
@@ -24,7 +24,7 @@ export class ImageEditorComponent implements AfterViewInit {
     }
 
     private initCanvasCtx() {
-        let canvas: ElementRef = this.canvas;
+        const canvas: ElementRef = this.canvas;
         this.canvasElement = canvas.nativeElement;
         this.canvasCtx = this.canvasElement.getContext('2d');
     }
@@ -38,22 +38,24 @@ export class ImageEditorComponent implements AfterViewInit {
     }
 
     saveImage() {
-        if (this.canvasCtx === null) return;
-
-        let imageSrc: String = this.canvasElement.toDataURL('image/png');
-        let saveSection: ElementRef = this.saveSection;
-        let el:HTMLElement = this.saveSection.nativeElement;
-        let link:HTMLAnchorElement = document.createElement('a');
+        if (this.canvasCtx === null) {
+            return;
+        }
+        const imageSrc: String = this.canvasElement.toDataURL('image/png');
+        const saveSection: ElementRef = this.saveSection;
+        const el: HTMLElement = this.saveSection.nativeElement;
+        const link: HTMLAnchorElement = document.createElement('a');
         link.href = imageSrc.toString();
-        link.text = "Download image";
-        link.setAttribute("download", "myFile.png");
+        link.text = 'Download image';
+        link.setAttribute('download', 'myFile.png');
 
         el.appendChild(link);
     }
 
     drawRect() {
-        if (this.canvasCtx === null) return;
-
+        if (this.canvasCtx === null) {
+            return;
+        }
         this.canvasCtx.fillStyle = '#FF0000';
         this.canvasCtx.fillRect(0, 0, 150, 75);
     }
