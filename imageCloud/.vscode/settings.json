@@ -8,8 +8,9 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/node_modules/[a-o | q-z]*":true,
-        "**/node_modules/p[a-q | s-z]*":true,
-        "**/node_modules/pr[a-h | j-z]*":true
-    }
+        "**/node_modules/[a-o | q-z]*": true,
+        "**/node_modules/p[a-q | s-z]*": true,
+        "**/node_modules/pr[a-h | j-z]*": true
+    },
+    "editor.formatOnSave": true
 }
