@@ -4,8 +4,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { RatingModule, DialogModule, ButtonModule, InputTextModule } from 'primeng/primeng';
-import { InputTextareaModule, PanelModule, MultiSelectModule } from 'primeng/primeng';
+
+import { RatingModule } from 'primeng/components/rating/rating';
+import { DialogModule } from 'primeng/components/dialog/dialog';
+import { ButtonModule } from 'primeng/components/button/button';
+import { InputTextModule } from 'primeng/components/inputtext/inputtext';
+import { InputTextareaModule } from 'primeng/components/inputtextarea/inputtextarea';
+import { PanelModule } from 'primeng/components/panel/panel';
+import { MultiSelectModule } from 'primeng/components/multiselect/multiselect';
 
 import { AppComponent } from './app.component';
 import { AssetDetailComponent } from './asset-detail/asset-detail.component';
