@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -43,7 +43,7 @@ import { SearchService } from 'app/search/search.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
+    ReactiveFormsModule, FormsModule,
     HttpModule,
     RatingModule, DialogModule, ButtonModule, InputTextModule, InputTextareaModule, PanelModule, MultiSelectModule,
     RouterModule.forRoot([

@@ -3,3 +3,21 @@
 </div>
 
 <app-asset-upload-dialog></app-asset-upload-dialog>
+
+<form [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
+    <!--email input-->
+    <input formControlName="email" type="email" placeholder="Your email">
+    <div class="errors" *ngIf="email.hasError('required')">
+        Email is required.
+    </div>
+    <div class="errors" *ngIf="email.hasError('toolow')">
+        Email to low.
+    </div>
+
+    <input formControlName="password" type="password" placeholder="Your password">
+    <div class="errors" *ngIf="password.invalid && password.touched">
+        Password is required.
+    </div>
+
+    <button type="submit">Log in</button>
+</form>
