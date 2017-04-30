@@ -13,40 +13,27 @@ import { Observable } from 'rxjs/Observable';
 export class StatisticsComponent {
 
   loginForm: FormGroup;
+  email: FormControl;
+  password: FormControl;
 
   /**
    * Constructor.
    */
   constructor(private fb: FormBuilder) {
+    this.email = new FormControl('', [Validators.required, this.minimumLength]);
+    this.password = new FormControl('', Validators.required);
+
     this.loginForm = this.fb.group({
-      email: new FormControl('', Validators.required, this.minimumLength),
-      password: new FormControl('', Validators.required)
+      email: this.email,
+      password: this.password
     });
   }
 
-  minimumLength(ctrl: FormControl): Observable<ValidationErrors | null> {
-    return ctrl.valueChanges
-      .debounceTime(200)
-      .map(value => {
-        if (value === 'test') {
-          return null;
-        } else {
-          ctrl.setErrors({ toolow: true }); // TODO: search for a better solution
-          return { toolow: true };
-        }
-      });
+  minimumLength(ctrl: FormControl): ValidationErrors {
+    return ctrl.value === 'test' ? null : { toolow: true };
   }
 
   doLogin(event: Event) {
     this.loginForm.reset();
   }
-
-  get email() {
-    return this.loginForm.get('email');
-  }
-
-  get password() {
-    return this.loginForm.get('password');
-  }
-
 }
