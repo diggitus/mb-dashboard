@@ -13,6 +13,9 @@ import { InputTextareaModule } from 'primeng/components/inputtextarea/inputtexta
 import { PanelModule } from 'primeng/components/panel/panel';
 import { MultiSelectModule } from 'primeng/components/multiselect/multiselect';
 
+import { MdCardModule } from '@angular/material';
+import { MdInputModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { AssetDetailComponent } from './asset-detail/asset-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -46,6 +49,7 @@ import { SearchService } from 'app/search/search.service';
     ReactiveFormsModule, FormsModule,
     HttpModule,
     RatingModule, DialogModule, ButtonModule, InputTextModule, InputTextareaModule, PanelModule, MultiSelectModule,
+    MdCardModule, MdInputModule,
     RouterModule.forRoot([
       { path: 'dashboard', component: DashboardComponent },
       { path: 'statistics', component: StatisticsComponent },

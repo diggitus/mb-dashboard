@@ -1,23 +1,60 @@
-<div id="mbc-main-container">
-    <h2>Statistics</h2>
+<div style="margin-left:100px; margin-right:100px" class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-12">
+        <md-card>
+            <h2>Statistics</h2>
+        </md-card>
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-4">
+        <md-card style="height: 200px">
+            <form [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
+                <md-card-title>
+                    Login
+                </md-card-title>
+
+                <md-card-content class="ui-g">
+
+                    <div class="ui-g-12 ui-md-12 ui-lg-12">
+                        <md-input-container>
+                            <input mdInput formControlName="email" type="email" placeholder="Your email">
+                        </md-input-container>
+                        <div class="ui-messages-error" *ngIf="email.hasError('required')">
+                            Email is required.
+                        </div>
+                        <div class="ui-messages-error" *ngIf="email.hasError('toolow')">
+                            Email to low.
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-12 ui-lg-12">
+                        <md-input-container>
+                            <input mdInput formControlName="password" type="password" placeholder="Your password">
+                        </md-input-container>
+                        <div class="ui-messages-error" *ngIf="password.invalid && password.touched">
+                            Password is required.
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-12 ui-lg-12">
+                        <button pButton type="submit" label="Log in"></button>
+                    </div>
+
+                </md-card-content>
+
+
+            </form>
+        </md-card>
+    </div>
+
+    <div class="ui-g-12 ui-md-12 ui-lg-4">
+        <md-card style="height: 200px">
+            <app-asset-upload-dialog></app-asset-upload-dialog>
+        </md-card>
+    </div>
+
+    <div class="ui-g-12 ui-md-12 ui-lg-4">
+        <md-card style="height: 200px">
+            Test
+        </md-card>
+    </div>
+
 </div>
-
-<app-asset-upload-dialog></app-asset-upload-dialog>
-
-<form [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
-    <!--email input-->
-    <input formControlName="email" type="email" placeholder="Your email">
-    <div class="errors" *ngIf="email.hasError('required')">
-        Email is required.
-    </div>
-    <div class="errors" *ngIf="email.hasError('toolow')">
-        Email to low.
-    </div>
-
-    <input formControlName="password" type="password" placeholder="Your password">
-    <div class="errors" *ngIf="password.invalid && password.touched">
-        Password is required.
-    </div>
-
-    <button type="submit">Log in</button>
-</form>
