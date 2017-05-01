@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 
 import { AssetDetailComponent } from './asset-detail.component';
 
@@ -8,9 +10,17 @@ describe('AssetDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AssetDetailComponent ]
+      declarations: [AssetDetailComponent],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+          params: Observable.of({
+            id: 5
+          })
+        }
+      }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
