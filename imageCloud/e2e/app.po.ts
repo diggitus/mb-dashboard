@@ -5,7 +5,7 @@ export class ImageCloudPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getDashboardLink() {
+    return element(by.css('a.mbc-main-nav-link')).getText();
   }
 }

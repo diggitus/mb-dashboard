@@ -7,8 +7,8 @@ describe('image-cloud App', () => {
     page = new ImageCloudPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display dashboard link', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getDashboardLink()).toEqual('Dashboard');
   });
 });
