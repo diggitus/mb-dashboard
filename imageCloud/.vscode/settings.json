@@ -12,5 +12,6 @@
         "**/node_modules/p[a-q | s-z]*": true,
         "**/node_modules/pr[a-h | j-z]*": true
     },
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "vsicons.presets.angular": true
 }

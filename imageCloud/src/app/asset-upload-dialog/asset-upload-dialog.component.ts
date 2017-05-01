@@ -4,7 +4,7 @@ import { SelectItem } from 'primeng/components/common/api';
 @Component({
     selector: 'app-asset-upload-dialog',
     templateUrl: './asset-upload-dialog.component.html',
-    styleUrls: ['./asset-upload-dialog.component.css']
+    styleUrls: ['./asset-upload-dialog.component.scss']
 })
 export class AssetUploadDialogComponent {
 

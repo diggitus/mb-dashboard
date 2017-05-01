@@ -2,9 +2,9 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Button } from 'primeng/primeng';
 
 @Component({
-  selector: 'app-image-editor',
-  templateUrl: './image-editor.component.html',
-  styleUrls: ['./image-editor.component.css']
+    selector: 'app-image-editor',
+    templateUrl: './image-editor.component.html',
+    styleUrls: ['./image-editor.component.scss']
 })
 export class ImageEditorComponent implements AfterViewInit {
 

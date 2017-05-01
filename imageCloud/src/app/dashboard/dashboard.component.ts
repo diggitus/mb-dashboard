@@ -5,10 +5,10 @@ import { Tile } from '../tile/tile';
 import { Asset } from '../shared/asset';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  providers: [AssetService]
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss'],
+    providers: [AssetService]
 })
 export class DashboardComponent implements OnInit {
 
