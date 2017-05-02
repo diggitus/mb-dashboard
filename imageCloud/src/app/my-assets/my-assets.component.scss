@@ -1,0 +1,54 @@
+$small-size: 60em;
+$very-small: 40em;
+
+.main {
+    display: table;
+    margin: auto;
+    border-spacing: 10px;
+    color: black;
+    width: 100%;
+    max-width: 1000px;
+
+    .cell {
+        display: table-cell;
+        background-color: white;
+        width: 30%;
+        min-width: 200px;
+        padding: 10px;
+        box-sizing: border-box;
+    
+        @media screen and (max-width: $small-size) {
+            display: block;
+            width: 100%;
+            min-width: 100%;
+        }
+    }
+    
+}
+
+.flex-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: black;
+    margin: auto;
+    width: 90%;
+
+    .flex-item {
+        padding: 10px;
+        box-sizing: border-box;
+        width: 33.3%;
+
+        .inner {
+            background-color: white;
+        }
+        
+        @media screen and (max-width: $small-size) {
+            width: 50%;
+        }
+
+        @media screen and (max-width: $very-small) {
+            width: 100%;
+        }
+    }
+}
