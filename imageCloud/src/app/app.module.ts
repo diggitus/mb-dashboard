@@ -28,6 +28,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchService } from 'app/search/search.service';
+import { UserService } from 'app/service/user.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { SearchService } from 'app/search/search.service';
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
     ])
   ],
-  providers: [SearchService],
+  providers: [SearchService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
