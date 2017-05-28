@@ -16,6 +16,7 @@ export class AssetUploadDialogComponent {
 
     cities: SelectItem[];
     selectedCity: string[];
+    selectedCities: string[];
 
     title: string;
     description: string;

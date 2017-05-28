@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .ui-tile {
     display: block;
     overflow: hidden;
@@ -45,7 +47,7 @@
 .overlayPanel .thumbnail img {
 	max-height: 100%;
 	max-width: 100%;
-	border: 1px solid white;
+	border: 1px solid $color-tile-border;
 }
 
 .overlayPanel .filename {
